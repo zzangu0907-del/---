@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>짱구의 졸업 프로젝트 | 목덕방</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* [기본 설정] */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9; /* 아주 연한 회색 배경 */
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* [레이아웃] */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* [헤더 & 네비게이션 - 요청하신 이미지 스타일] */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-menu a {
+            font-size: 16px;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-menu a:hover { color: #8B4513; /* 목공 느낌의 갈색 */ }
+
+        /* [메인 섹션 공통] */
+        section { padding: 80px 0; }
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #222;
+        }
+
+        /* [1. 목덕방 소개 (프로젝트 개요)] */
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            word-break: keep-all;
+        }
+        .highlight { color: #8B4513; font-weight: 700; }
+
+        /* [2. 목공 교육 프로그램 (커리큘럼)] */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .program-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .program-card h3 { font-size: 20px; margin-bottom: 15px; color: #8B4513; }
+        .program-card ul li { margin-bottom: 8px; font-size: 15px; color: #666; }
+
+        /* [3. 작품 갤러리 - 핀터레스트/목덕방 느낌] */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover { transform: translateY(-5px); }
+        
+        /* 이미지 들어갈 자리 (회색 박스) */
+        .gallery-img-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 14px;
+        }
+        /* 실제 이미지를 넣을 때 사용할 클래스 */
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: none; /* 이미지가 준비되면 이 줄을 지우세요 */
+        }
+
+        .gallery-info { padding: 20px; }
+        .gallery-title { font-weight: 700; font-size: 18px; margin-bottom: 5px; }
+        .gallery-desc { font-size: 14px; color: #777; }
+
+        /* [4. 문의/푸터] */
+        footer {
+            background: #2c2c2c;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .contact-info p { margin-bottom: 10px; color: #aaa; }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } /* 모바일 간소화 (추후 추가 가능) */
+            .logo { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">목덕방</div>
+            <nav class="nav-menu">
+                <a href="#intro">목덕방 소개</a>
+                <a href="#program">목공 교육 프로그램</a>
+                <a href="#gallery">작품 갤러리</a>
+                <a href="#community">커뮤니티</a>
+                <a href="#contact">문의</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="intro">
+        <div class="container">
+            <h2 class="section-title">목덕방 소개</h2>
+            <div class="intro-text">
+                <p>
+                    <span class="highlight">'내 것을 우리의 것으로'</span><br><br>
+                    내가 그동안 배워온 우드카빙 기술과 목공 경험을 바탕으로, <br>
+                    더 많은 사람들이 나무 작업을 직접 경험할 수 있도록 만든 공간입니다.<br><br>
+                    나무의 결을 느끼고 도구를 사용하는 기본기부터,<br>
+                    나만의 조각을 디자인하고 완성하는 기쁨까지 함께합니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="program" style="background-color: #f0f0f0;">
+        <div class="container">
+            <h2 class="section-title">목공 교육 프로그램</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <h3>1단계: 기초 익히기</h3>
+                    <ul>
+                        <li>• 나무 재질 이해하기</li>
+                        <li>• 우드카빙 도구 사용법 (칼, 도끼 등)</li>
+                        <li>• 트라이 스틱(Try Stick) 제작</li>
+                        <li>• 안전한 파지법과 깎는 법</li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <h3>2단계: 디자인 및 작업</h3>
+                    <ul>
+                        <li>• 나만의 가랜드 조각 디자인</li>
+                        <li>• 나무 블랭크 준비 및 쳐내기</li>
+                        <li>• 환도와 끌을 이용한 단차 작업</li>
+                        <li>• 칩카빙 나이프를 이용한 디테일 표현</li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <h3>3단계: 완성 및 전시</h3>
+                    <ul>
+                        <li>• 사포질 및 오일/바니쉬 마감</li>
+                        <li>• 아크릴 물감 채색</li>
+                        <li>• 완성된 작품 전시 (전쟁과 여성 인권박물관)</li>
+                        <li>• 공동 작업을 통한 연대 활동</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">작품 갤러리</h2>
+            <div class="gallery-grid">
+                
+                <div class="gallery-item">
+                    <div class="gallery-img-placeholder">사진을 넣어주세요 (가랜드1.jpg)</div>
+                    <img src="가랜드1.jpg" alt="가랜드 작품" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">공동 가랜드 작업</h3>
+                        <p class="gallery-desc">중등 친구들과 함께 만든 평화의 가랜드</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img-placeholder">사진을 넣어주세요 (우드카빙.jpg)</div>
+                    <img src="우드카빙.jpg" alt="우드카빙" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">나만의 조각</h3>
+                        <p class="gallery-desc">나비, 꽃, 나뭇잎을 나무에 새기다</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img-placeholder">사진을 넣어주세요 (스툴.jpg)</div>
+                    <img src="스툴.jpg" alt="스툴" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">학교를 위한 가구</h3>
+                        <p class="gallery-desc">직접 설계하고 제작한 스툴과 수납함</p>
+                    </div>
+                </div>
+
+                 <div class="gallery-item">
+                    <div class="gallery-img-placeholder">사진을 넣어주세요 (숟가락.jpg)</div>
+                    <img src="숟가락.jpg" alt="숟가락" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">우드카빙 스푼</h3>
+                        <p class="gallery-desc">향나무 가지치기 목재를 활용한 스푼</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>목덕방</h2>
+            <br>
+            <div class="contact-info">
+                <p>졸업 프로젝트: 짱구 (성미산 학교)</p>
+                <p>활동 장소: 성미산 학교 지하 목공실 & 3층 교실</p>
+                <p>Copyright © 2025 Zzangu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
