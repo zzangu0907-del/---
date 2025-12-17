@@ -266,6 +266,28 @@
             </div>
         </div>
     </footer>
+<div class="menu-trigger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
+<div id="side-menu-overlay" class="overlay">
+    <div class="sidebar">
+        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        
+        <h2 class="sidebar-logo">목덕방</h2>
+        
+        <ul class="menu-list">
+            <li><a href="/about">목덕방 소개</a></li>
+            <li><a href="/program">목공 교육 프로그램</a></li>
+            <li><a href="/gallery">작품 갤러리</a></li>
+            <li><a href="/community">커뮤니티</a></li>
+            <li><a href="/contact">문의</a></li>
+        </ul>
+    </div>
+    <div class="backdrop" onclick="toggleMenu()"></div>
+</div>
+    
 </body>
 </html>
