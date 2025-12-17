@@ -1,0 +1,119 @@
+/* 햄버거 버튼 디자인 (기존 버튼이 없다면 사용) */
+.menu-trigger {
+    width: 24px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 50; /* 헤더 위에 표시 */
+}
+.menu-trigger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transition: 0.3s;
+}
+
+/* --------------------------------------- */
+/* 사이드바 핵심 스타일 (목덕방 디자인 적용) */
+/* --------------------------------------- */
+
+/* 전체 화면을 덮는 컨테이너 (평소엔 숨김) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    visibility: hidden; /* 화면에서 숨김 */
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* 메뉴가 활성화되었을 때 */
+.overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 실제 메뉴 패널 (흰색/회색 영역) */
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: -320px; /* 왼쪽으로 숨겨둠 */
+    width: 320px; /* 메뉴 너비 */
+    height: 100%;
+    background-color: #f9f9f9; /* 목덕방 특유의 연한 회색 배경 */
+    padding: 40px;
+    box-sizing: border-box;
+    transition: left 0.3s ease-in-out; /* 부드러운 슬라이드 효과 */
+    z-index: 10001;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1); /* 살짝 그림자 */
+}
+
+/* 메뉴 활성화 시 패널 슬라이드 인 */
+.overlay.active .sidebar {
+    left: 0;
+}
+
+/* 배경 어둡게 처리 (백드롭) */
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3); /* 반투명 검은색 */
+}
+
+/* 닫기 버튼 (X) */
+.close-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #444;
+    font-weight: 100; /* 얇은 X 모양 */
+    padding: 0;
+    line-height: 1;
+}
+
+/* 사이드바 내부 타이틀 '목덕방' */
+.sidebar-logo {
+    font-size: 32px;
+    font-weight: 800; /* 아주 굵은 폰트 */
+    color: #333;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+}
+
+/* 메뉴 리스트 스타일 */
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-list li {
+    margin-bottom: 24px; /* 메뉴 간 간격 */
+}
+
+.menu-list a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #555;
+    font-weight: 500;
+    display: block;
+    transition: color 0.2s;
+}
+
+.menu-list a:hover {
+    color: #000; /* 마우스 올리면 진해짐 */
+}
